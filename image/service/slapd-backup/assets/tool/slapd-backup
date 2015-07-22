@@ -1,0 +1,11 @@
+#!/bin/bash -e
+
+# Usage: /sbin/slapd-backup dbnum filename
+
+pathBackup="/data/backup"
+
+# Date format for the dump file name
+dateFileFormat="+%F-%T"
+pathBackupFile="$pathBackup/$(date "$dateFileFormat")-$filename.tar.gz"
+
+/usr/sbin/slapcat -n $dbnum | tar > $pathBackupFile

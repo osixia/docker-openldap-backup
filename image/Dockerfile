@@ -1,14 +1,12 @@
-FROM osixia/light-baseimage:0.1.0
+FROM osixia/openldap:1.0.0
 MAINTAINER Bertrand Gouny <bertrand.gouny@osixia.net>
 
 # Use baseimage-docker's init system.
 CMD ["/osixia/tool/run"]
 
-# Install cron and OpenLDAP, needed for slapcat util ldap-utils
-RUN apt-get -y update && /sbin/install-service-available cron \
-	&& LC_ALL=C DEBIAN_FRONTEND=noninteractive apt-get install -y --force-yes --no-install-recommends \
-	slapd \
-	&& rm -rf /var/lib/ldap /etc/ldap/slapd.d
+# Use baseimage remove-service tool to remove slapd service
+# including process and container start files
+RUN apt-get -y update && /sbin/add-service-available cron && /sbin/remove-service slapd
 
 # Add service directory to /osixia/service
 ADD service /osixia/service
