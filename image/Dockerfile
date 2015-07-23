@@ -1,18 +1,24 @@
 FROM osixia/openldap:1.0.0
 MAINTAINER Bertrand Gouny <bertrand.gouny@osixia.net>
 
-# Use baseimage-docker's init system.
-CMD ["/osixia/tool/run"]
+# Use baseimage's init system.
+# https://github.com/osixia/docker-light-baseimage/blob/stable/image/tool/run
+CMD ["/container/tool/run"]
 
 # Use baseimage remove-service tool to remove slapd service
 # including process and container start files
-RUN apt-get -y update && /sbin/add-service-available cron && /sbin/remove-service slapd
+RUN apt-get -y update \
+		&& /sbin/add-service-available cron \
+		&& /sbin/remove-service slapd
 
-# Add service directory to /osixia/service
-ADD service /osixia/service
+# Add service directory to /container/service
+ADD service /container/service
 
 # Use baseimage install-service script and clean all
-RUN ./sbin/install-service && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+# https://github.com/osixia/docker-light-baseimage/blob/stable/image/tool/install-service
+RUN /container/tool/install-service \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Add default env variables
 ADD env.yaml /etc/env.yaml
