@@ -1,0 +1,7 @@
+#!/bin/bash -e
+
+# Usage: /sbin/slapd-restore-data file [gunzipFile]
+file=$1
+gunzipFile=$2
+
+/sbin/slapd-restore 1 $file $gunzipFile

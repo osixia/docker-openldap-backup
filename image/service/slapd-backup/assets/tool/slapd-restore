@@ -1,0 +1,24 @@
+#!/bin/bash -e
+
+# Usage: /sbin/slapd-restore dbnum file [gunzipFile]
+dbnum=$1
+file=$2
+gunzipFile=$3
+
+if [ ! -z "$gunzipFile" ]; then
+
+  if [ ! -d "/tmp/slapd-restore/" ]; then
+    mkdir -p /tmp/slapd-restore/
+  else
+    rm -rf /tmp/slapd-restore/*
+  fi
+
+  gunzip -c $file > /tmp/slapd-restore/to-restore.ldif
+  file="/tmp/slapd-restore/to-restore.ldif"
+fi
+
+/sbin/setuser openldap slapadd -F /etc/ldap/slapd.d -n $dbnum -l $file
+
+if [ ! -z "$gunzipFile" ]; then
+  rm -rf /tmp/slapd-restore/
+fi

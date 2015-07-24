@@ -8,8 +8,8 @@ CMD ["/container/tool/run"]
 # Use baseimage remove-service tool to remove slapd service
 # including process and container start files
 RUN apt-get -y update \
-		&& /sbin/add-service-available cron \
-		&& /sbin/remove-service slapd
+		&& /container/tool/install-service-available cron \
+		&& /container/tool/remove-service slapd
 
 # Add service directory to /container/service
 ADD service /container/service
