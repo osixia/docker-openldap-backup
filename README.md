@@ -28,6 +28,8 @@ Environement variables defaults are set in **image/env.yaml**. You can modify en
 
 - **LDAP_BACKUP_DATA_CRON_EXP**: Cron expression to schedule OpenLDAP data backup. Defaults to `"0 4 * * *"`. Every days at 4am.
 
+- **LDAP_BACKUP_TTL**: Backup TTL in days. Defaults to `15`.
+
 ### Set environment variables at run time :
 
 Environment variable can be set directly by adding the -e argument in the command line, for example :
