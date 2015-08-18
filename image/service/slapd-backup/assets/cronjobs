@@ -1,5 +1,5 @@
 # Backup OpenLDAP config
-{{ CRON_EXP_BACKUP_CONFIG }} root /sbin/slapd-backup-config
+{{ LDAP_BACKUP_CONFIG_CRON_EXP }} root /sbin/slapd-backup-config 2>&1 | /usr/bin/logger -s -t slapd-backup-config
 
 # Backup OpenLDAP data
-{{ CRON_EXP_BACKUP_DATA }} root /sbin/slapd-backup-data
+{{ LDAP_BACKUP_DATA_CRON_EXP }} root /sbin/slapd-backup-data 2>&1 | /usr/bin/logger -s -t slapd-backup-data

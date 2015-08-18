@@ -5,9 +5,9 @@ FIRST_START_DONE="/etc/docker-openldap-backup-first-start-done"
 # container first start
 if [ ! -e "$FIRST_START_DONE" ]; then
 
-  # Adapt cronjobs file
-  sed -i "s|{{ CRON_EXP_BACKUP_CONFIG }}|${CRON_EXP_BACKUP_CONFIG}|g" /container/service/slapd-backup/assets/cronjobs
-  sed -i "s|{{ CRON_EXP_BACKUP_DATA }}|${CRON_EXP_BACKUP_DATA}|g" /container/service/slapd-backup/assets/cronjobs
+  # adapt cronjobs file
+  sed -i "s|{{ LDAP_BACKUP_CONFIG_CRON_EXP }}|${LDAP_BACKUP_CONFIG_CRON_EXP}|g" /container/service/slapd-backup/assets/cronjobs
+  sed -i "s|{{ LDAP_BACKUP_DATA_CRON_EXP }}|${LDAP_BACKUP_DATA_CRON_EXP}|g" /container/service/slapd-backup/assets/cronjobs
 
   touch $FIRST_START_DONE
 fi

@@ -24,15 +24,17 @@ For more information about docker data volume, please refer to :
 
 Environement variables defaults are set in **image/env.yaml**. You can modify environment variable values directly in this file and rebuild the image ([see manual build](#manual-build)). You can also override those values at run time with -e argument or by setting your own env.yaml file as a docker volume to `/etc/env.yaml`. See examples below.
 
-- **CRON_EXP_BACKUP_CONFIG**: Cron expression to schedule OpenLDAP config backup. Defaults to `"0 4 * * *"`. Every days at 4am.
+- **LDAP_BACKUP_CONFIG_CRON_EXP**: Cron expression to schedule OpenLDAP config backup. Defaults to `"0 4 * * *"`. Every days at 4am.
 
-- **CRON_EXP_BACKUP_DATA**: Cron expression to schedule OpenLDAP data backup. Defaults to `"0 4 * * *"`. Every days at 4am.
+- **LDAP_BACKUP_DATA_CRON_EXP**: Cron expression to schedule OpenLDAP data backup. Defaults to `"0 4 * * *"`. Every days at 4am.
+
+- **LDAP_BACKUP_TTL**: Backup TTL in days. Defaults to `15`.
 
 ### Set environment variables at run time :
 
 Environment variable can be set directly by adding the -e argument in the command line, for example :
 
-	docker run -e CRON_EXP_BACKUP_CONFIG="0 5 * * *" -d osixia/openldap-backup
+	docker run -e LDAP_BACKUP_CONFIG_CRON_EXP="0 5 * * *" -d osixia/openldap-backup
 
 Or by setting your own `env.yaml` file as a docker volume to `/etc/env.yaml`
 
