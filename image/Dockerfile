@@ -1,4 +1,4 @@
-FROM osixia/openldap:1.0.3
+FROM osixia/openldap:1.0.4
 MAINTAINER Bertrand Gouny <bertrand.gouny@osixia.net>
 
 # Use baseimage's init system.
