@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.1.4
+  - Upgrade baseimage: osixia/openldap:1.0.5
+
 ## 0.1.3
   - Upgrade baseimage: osixia/openldap:1.0.4
 
