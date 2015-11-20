@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.1.6
+  - Upgrade baseimage: openldap:1.0.7
+
 ## 0.1.5
   - Upgrade baseimage: openldap:1.0.6
 
