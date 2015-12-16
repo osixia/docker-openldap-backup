@@ -2,6 +2,7 @@
 
 ## 0.1.7
   - Upgrade baseimage: openldap:1.0.9
+  - Makefile with build no cache
 
 ## 0.1.6
   - Upgrade baseimage: openldap:1.0.7
