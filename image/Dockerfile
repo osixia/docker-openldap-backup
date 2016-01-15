@@ -1,19 +1,15 @@
-FROM osixia/openldap:1.0.9
+FROM osixia/openldap:1.1.0
 MAINTAINER Bertrand Gouny <bertrand.gouny@osixia.net>
 
-# Use baseimage's init system.
-# https://github.com/osixia/docker-light-baseimage/blob/stable/image/tool/run
-CMD ["/container/tool/run"]
-
-# Install baseimage cron service
-# https://github.com/osixia/docker-light-baseimage/blob/stable/image/tool/install-service-available
-
-# Use baseimage remove-service tool to remove slapd service
-# including process and container start files
-# https://github.com/osixia/docker-light-baseimage/blob/stable/image/tool/remove-service
+# Install cron from baseimage and remove .cfss and slapd services inherited from openldap image
+# remove also previous default environment files, they are not needed.
+# sources: https://github.com/osixia/docker-light-baseimage/blob/stable/image/tool/add-service-available
+#          https://github.com/osixia/docker-light-baseimage/blob/stable/image/service-available/.cron/download.sh
 RUN apt-get -y update \
-		&& /container/tool/install-service-available cron \
-		&& /container/tool/remove-service slapd
+		&& /container/tool/add-service-available .cron \
+		&& rm -rf /container/service/.cfssl \
+		&& rm -rf /container/service/slapd \
+		&& rm -rf /container/environment/99-default
 
 # Add service directory to /container/service
 ADD service /container/service
@@ -25,7 +21,7 @@ RUN /container/tool/install-service \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Add default env variables
-ADD env.yaml /container/environment/env.yaml
+ADD environment /container/environment/99-default
 
 # Set backup data in a data volume
 VOLUME ["/data/backup"]
