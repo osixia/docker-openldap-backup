@@ -4,10 +4,10 @@ MAINTAINER Bertrand Gouny <bertrand.gouny@osixia.net>
 # Install cron from baseimage and remove .cfss and slapd services inherited from openldap image
 # remove also previous default environment files, they are not needed.
 # sources: https://github.com/osixia/docker-light-baseimage/blob/stable/image/tool/add-service-available
-#          https://github.com/osixia/docker-light-baseimage/blob/stable/image/service-available/.cron/download.sh
+#          https://github.com/osixia/docker-light-baseimage/blob/stable/image/service-available/:cron/download.sh
 RUN apt-get -y update \
-		&& /container/tool/add-service-available .cron \
-		&& rm -rf /container/service/.cfssl \
+		&& /container/tool/add-service-available :cron \
+		&& rm -rf /container/service/:cfssl \
 		&& rm -rf /container/service/slapd \
 		&& rm -rf /container/environment/99-default
 

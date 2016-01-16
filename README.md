@@ -63,7 +63,7 @@ For example if your environment file is in :  /data/ldap/environment/my-env.yaml
 	docker run --volume /data/ldap/environment/my-env.yaml:/container/environment/01-custom/env.yaml \
 	--detach osixia/openldap-backup:0.1.7
 
-Take care to link your environment files folder to `/container/environment/XX-somedir` (with XX < 99 so they will be processed before default environment files) and not  directly to `/container/environment` because this directory contains predefined baseimage environment files to fix container environment (INITRD, LANG, LANGUAGE and LC_CTYPE).
+Take care to link your environment file to `/container/environment/XX-somedir` (with XX < 99 so they will be processed before default environment files) and not  directly to `/container/environment` because this directory contains predefined baseimage environment files to fix container environment (INITRD, LANG, LANGUAGE and LC_CTYPE).
 
 #### Make your own image or extend this image
 
@@ -128,6 +128,11 @@ More information:
 - https://github.com/kubernetes/kubernetes
 
 osixia-openldap-backup kubernetes examples are available in [osixia/docker-openldap](https://github.com/osixia/docker-openldap/tree/stable/example/kubernetes/simple).
+
+### Under the hood: osixia/openldap
+
+This image is based on osixia/openldap.
+More info: https://github.com/osixia/docker-openldap
 
 ## Changelog
 
