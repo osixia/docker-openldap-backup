@@ -5,7 +5,7 @@
 An image to backup and restore OpenLDAP data and config.
 
 - [Quick start](#quick-start)
-  - [Backup directory and data persitance](#backup-directory-and-data-persitance)
+  - [Backup directory and data persistence](#backup-directory-and-data-persistence)
   - [Debug](#debug)
 - [Environment Variables](#environment-variables)
 	- [Set your own environment variables](#set-your-own environment-variables)
@@ -28,7 +28,7 @@ An image to backup and restore OpenLDAP data and config.
     # Run OpenLDAP Backup image
     docker run --volumes-from openldap --detach osixia/openldap-backup:0.1.7
 
-### Backup directory and data persitance
+### Backup directory and data persistence
 
 Backups are created in the directory `/data/backup` that has been declared as a volume, so your backup files are saved outside the container in a data volume.
 
