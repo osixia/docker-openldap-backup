@@ -1,6 +1,13 @@
 # osixia/openldap-backup
 
-[![](https://badge.imagelayers.io/osixia/openldap-backup:latest.svg)](https://imagelayers.io/?images=osixia/openldap-backup:latest 'Get your own badge on imagelayers.io') | Latest release: 0.1.8 -  [Changelog](CHANGELOG.md) | [Docker Hub](https://hub.docker.com/r/osixia/openldap-backup/) 
+[![Docker Pulls](https://img.shields.io/docker/pulls/osixia/openldap-backup.svg)][hub]
+[![Docker Stars](https://img.shields.io/docker/stars/osixia/openldap-backup.svg)][hub]
+[![Image Size](https://img.shields.io/imagelayers/image-size/osixia/openldap-backup/latest.svg)](https://imagelayers.io/?images=osixia/openldap-backup:latest)
+[![Image Layers](https://img.shields.io/imagelayers/layers/osixia/openldap-backup/latest.svg)](https://imagelayers.io/?images=osixia/openldap-backup:latest)
+
+[hub]: https://hub.docker.com/r/osixia/openldap-backup/
+
+Latest release: 0.1.8 -  [Changelog](CHANGELOG.md) | [Docker Hub](https://hub.docker.com/r/osixia/openldap-backup/) 
 
 An image to backup and restore OpenLDAP data and config.
 
