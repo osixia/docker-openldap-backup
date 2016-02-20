@@ -6,7 +6,7 @@ filename=$2
 
 backupPath="/data/backup"
 
-source /etc/container_environment.sh
+source /container/run/environment.sh
 
 # delete backups that are over $LDAP_BACKUP_TTL days
 find $backupPath -type f -mtime +$LDAP_BACKUP_TTL -exec rm {} \;
