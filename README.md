@@ -2,8 +2,6 @@
 
 [![Docker Pulls](https://img.shields.io/docker/pulls/osixia/openldap-backup.svg)][hub]
 [![Docker Stars](https://img.shields.io/docker/stars/osixia/openldap-backup.svg)][hub]
-[![Image Size](https://img.shields.io/imagelayers/image-size/osixia/openldap-backup/latest.svg)](https://imagelayers.io/?images=osixia/openldap-backup:latest)
-[![Image Layers](https://img.shields.io/imagelayers/layers/osixia/openldap-backup/latest.svg)](https://imagelayers.io/?images=osixia/openldap-backup:latest)
 
 [hub]: https://hub.docker.com/r/osixia/openldap-backup/
 
