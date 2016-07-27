@@ -3,7 +3,7 @@
 ## 0.1.9
   - Upgrade baseimage: openldap:1.1.4
 
-## 0.1.7
+## 0.1.8
   - Upgrade baseimage: openldap:1.1.1
 
 ## 0.1.7
