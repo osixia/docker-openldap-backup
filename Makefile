@@ -1,5 +1,5 @@
 NAME = osixia/openldap-backup
-VERSION = 0.1.9
+VERSION = 0.1.10
 
 .PHONY: all build build-nocache test tag_latest release
 

@@ -1,4 +1,4 @@
-FROM osixia/openldap:1.1.4
+FROM osixia/openldap:1.1.5
 MAINTAINER Bertrand Gouny <bertrand.gouny@osixia.net>
 
 # Install cron from baseimage and remove .cfss and slapd services inherited from openldap image
