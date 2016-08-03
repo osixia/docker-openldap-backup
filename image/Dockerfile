@@ -7,7 +7,7 @@ MAINTAINER Bertrand Gouny <bertrand.gouny@osixia.net>
 #          https://github.com/osixia/docker-light-baseimage/blob/stable/image/service-available/:cron/download.sh
 RUN apt-get -y update \
 		&& /container/tool/add-service-available :cron \
-		&& rm -rf /container/service/:cfssl \
+		&& rm -rf /container/service/:ssl-tools \
 		&& rm -rf /container/service/slapd \
 		&& rm -rf /container/environment/99-default \
 		&& apt-get clean \
