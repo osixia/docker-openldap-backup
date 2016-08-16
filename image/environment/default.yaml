@@ -1,6 +1,6 @@
 # Backup config and data every day at 4:00am
-LDAP_BACKUP_CONFIG_CRON_EXP: "0 4 * * *"
-LDAP_BACKUP_DATA_CRON_EXP: "0 4 * * *"
+LDAP_BACKUP_CONFIG_CRON_EXP: 0 4 * * *
+LDAP_BACKUP_DATA_CRON_EXP: 0 4 * * *
 
 # Delete backups that are over 15 days
 LDAP_BACKUP_TTL: 15
