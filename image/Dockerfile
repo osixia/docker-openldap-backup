@@ -6,10 +6,7 @@ MAINTAINER Bertrand Gouny <bertrand.gouny@osixia.net>
 # sources: https://github.com/osixia/docker-light-baseimage/blob/stable/image/tool/add-service-available
 #          https://github.com/osixia/docker-light-baseimage/blob/stable/image/service-available/:cron/download.sh
 RUN apt-get -y update \
-		&& /container/tool/add-service-available :cron \
-		&& rm -rf /container/service/:ssl-tools \
-		&& rm -rf /container/service/slapd \
-		&& rm -rf /container/environment/99-default \
+		&& /container/tool/add-multiple-process-stack \
 		&& apt-get clean \
 		&& rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
@@ -21,7 +18,7 @@ ADD service /container/service
 RUN /container/tool/install-service
 
 # Add default env variables
-ADD environment /container/environment/99-default
+ADD environment /container/environment/98-default
 
 # Set backup data in a data volume
 VOLUME ["/data/backup"]
