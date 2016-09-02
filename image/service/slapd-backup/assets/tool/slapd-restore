@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-# Usage: /sbin/slapd-restore dbnum file [gunzipFile]
+# Usage: /sbin/slapd-restore dbnum file
 dbnum=$1
 file=$2
 
