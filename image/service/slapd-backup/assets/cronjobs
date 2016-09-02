@@ -3,3 +3,4 @@
 
 # Backup OpenLDAP data
 {{ LDAP_BACKUP_DATA_CRON_EXP }} root /sbin/slapd-backup-data 2>&1 | /usr/bin/logger -s -t slapd-backup-data
+# empty line
