@@ -3,22 +3,19 @@
 # Usage: /sbin/slapd-restore dbnum file [gunzipFile]
 dbnum=$1
 file=$2
-gunzipFile=$3
 
-if [ ! -z "$gunzipFile" ]; then
+backupPath="/data/backup"
+file="$backupPath/$file"
 
-  if [ ! -d "/tmp/slapd-restore/" ]; then
-    mkdir -p /tmp/slapd-restore/
-  else
-    rm -rf /tmp/slapd-restore/*
-  fi
+TEMP_FILE=$(/usr/bin/mktemp)
+gunzip -c $file > $TEMP_FILE
 
-  gunzip -c $file > /tmp/slapd-restore/to-restore.ldif
-  file="/tmp/slapd-restore/to-restore.ldif"
-fi
+# stop slapd
+sv stop /container/run/process/slapd
 
-/sbin/setuser openldap slapadd -F /etc/ldap/slapd.d -n $dbnum -l $file
+/sbin/setuser openldap slapadd -F /etc/ldap/slapd.d -n $dbnum -l $TEMP_FILE
 
-if [ ! -z "$gunzipFile" ]; then
-  rm -rf /tmp/slapd-restore/
-fi
+# restart slapd
+sv start /container/run/process/slapd
+
+rm $TEMP_FILE
