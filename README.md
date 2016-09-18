@@ -2,13 +2,13 @@
 
 [![Docker Pulls](https://img.shields.io/docker/pulls/osixia/openldap-backup.svg)][hub]
 [![Docker Stars](https://img.shields.io/docker/stars/osixia/openldap-backup.svg)][hub]
+[![](https://images.microbadger.com/badges/image/osixia/openldap-backup.svg)](http://microbadger.com/images/osixia/openldap-backup "Get your own image badge on microbadger.com")
 
 [hub]: https://hub.docker.com/r/osixia/openldap-backup/
 
 Latest release: 1.1.6 -  [Changelog](CHANGELOG.md) | [Docker Hub](https://hub.docker.com/r/osixia/openldap-backup/) 
 
 **A docker image to run OpenLDAP, and make periodic backups.**
-
 
 - [Quick start](#quick-start)
   - [Backup directory and data persistence](#backup-directory-and-data-persistence)
