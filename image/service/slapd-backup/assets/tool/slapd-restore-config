@@ -4,3 +4,5 @@
 file=$1
 
 /sbin/slapd-restore 0 $file
+
+exit 0

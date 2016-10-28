@@ -20,3 +20,5 @@ sv stop /container/run/process/slapd
 sv start /container/run/process/slapd
 
 rm $TEMP_FILE
+
+exit 0
