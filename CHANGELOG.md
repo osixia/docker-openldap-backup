@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.7
+  - Upgrade baseimage: openldap:1.1.7
+  - chmod 600 o backups
+
 ## 1.1.6
   - Now a mutliple process image based on osixia/openldap with slapd
   - Restore tools updated

@@ -1,3 +1,5 @@
 #!/bin/bash -e
 
 /sbin/slapd-backup 0 config
+
+exit 0
