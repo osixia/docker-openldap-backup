@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.1.8
+  - Upgrade baseimage: openldap:1.1.8
+
 ## 1.1.7
   - Upgrade baseimage: openldap:1.1.7
   - chmod 600 o backups
