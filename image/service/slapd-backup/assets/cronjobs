@@ -1,15 +1,6 @@
 # Backup OpenLDAP config
 {{ LDAP_BACKUP_CONFIG_CRON_EXP }} root /sbin/slapd-backup-config > /proc/1/fd/1 2>/proc/1/fd/2
-if [ $UPLOAD_TO_S3 ]; then
-  # Upload backup to S3. The backupFilePath is the config backup file path
-  {{ LDAP_BACKUP_CONFIG_CRON_EXP }} root /sbin/backup-to-s3 $backupFilePath $3_PATH > /proc/1/fd/1 2>/proc/1/fd/2
-fi
 
 # Backup OpenLDAP data
 {{ LDAP_BACKUP_DATA_CRON_EXP }} root /sbin/slapd-backup-data > /proc/1/fd/1 2>/proc/1/fd/2
-
-if [ $UPLOAD_TO_S3 ]; then
-  # Upload backup to S3. The backupFilePath is the data backup file path
-  {{ LDAP_BACKUP_DATA_CRON_EXP }} root /sbin/backup-to-s3 $backupFilePath $S3_PATH > /proc/1/fd/1 2>/proc/1/fd/2
-fi
 # empty line

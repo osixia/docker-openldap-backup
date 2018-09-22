@@ -18,4 +18,10 @@ backupFilePath="$backupPath/$(date "$dateFileFormat")-$filename.gz"
 /usr/sbin/slapcat -F /etc/ldap/slapd.d -n $dbnum | gzip > $backupFilePath
 chmod 600 $backupFilePath
 
+if [[ "$UPLOAD_TO_S3" == "true" ]]; then
+  # Upload backup to S3. The backupFilePath is the config backup file path
+  aws s3 cp $backupFilePath s3://${s3path}
+  echo "Upload successful"
+fi
+
 exit 0

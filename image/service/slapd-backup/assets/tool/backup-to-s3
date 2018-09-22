@@ -1,8 +1,0 @@
-#!/bin/bash -e
-
-# Usage: /sbin/backup-to-s3 backupFilePath s3path
-backupFilePath=$1
-s3path=$2
-
-# Upload the backup to S3
-aws s3 cp $backupFilePath s3://${s3path}
