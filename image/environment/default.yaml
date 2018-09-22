@@ -5,6 +5,6 @@ LDAP_BACKUP_DATA_CRON_EXP: 0 4 * * *
 # Delete backups that are over 15 days
 LDAP_BACKUP_TTL: 15
 
-# Upload backups tp S3
+# Upload backups to S3
 UPLOAD_TO_S3: false
 S3_PATH: bucket/key-folder
