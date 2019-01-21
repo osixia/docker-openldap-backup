@@ -6,6 +6,7 @@ FROM osixia/openldap:1.2.3
 #          https://github.com/osixia/docker-light-baseimage/blob/stable/image/service-available/:cron/download.sh
 RUN apt-get -y update \
 	&& /container/tool/add-multiple-process-stack \
+	&& apt-get install -y awscli \
 	&& apt-get clean \
 	&& rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
