@@ -1,6 +1,6 @@
 # Backup OpenLDAP config
-{{ LDAP_BACKUP_CONFIG_CRON_EXP }} root /sbin/slapd-backup-config > /proc/1/fd/1 2>/proc/1/fd/2
+{{ LDAP_BACKUP_CONFIG_CRON_EXP }} root /sbin/slapd-backup-config 2>&1 | /usr/bin/logger -t cron_backup_config
 
 # Backup OpenLDAP data
-{{ LDAP_BACKUP_DATA_CRON_EXP }} root /sbin/slapd-backup-data > /proc/1/fd/1 2>/proc/1/fd/2
+{{ LDAP_BACKUP_DATA_CRON_EXP }} root /sbin/slapd-backup-data 2>&1 | /usr/bin/logger -t cron_backup_data
 # empty line

@@ -6,7 +6,7 @@
 
 [hub]: https://hub.docker.com/r/osixia/openldap-backup/
 
-Latest release: 1.3.0 - [Changelog](CHANGELOG.md) | [Docker Hub](https://hub.docker.com/r/osixia/openldap-backup/) 
+Latest release: 1.4.0 - [Changelog](CHANGELOG.md) | [Docker Hub](https://hub.docker.com/r/osixia/openldap-backup/) 
 
 **A docker image to run OpenLDAP, and make periodic backups.**
 
@@ -21,7 +21,7 @@ Latest release: 1.3.0 - [Changelog](CHANGELOG.md) | [Docker Hub](https://hub.doc
 			- [Link environment file](#link-environment-file)
 			- [Make your own image or extend this image](#make-your-own-image-or-extend-this-image)
 	- [Advanced User Guide](#advanced-user-guide)
-		- [Extend osixia/openldap-backup:1.3.0 image](#extend-osixiaopenldap-backup130-image)
+		- [Extend osixia/openldap-backup:1.4.0 image](#extend-osixiaopenldap-backup140-image)
 		- [Make your own openldap-backup image](#make-your-own-openldap-backup-image)
 		- [Tests](#tests)
 		- [Kubernetes](#kubernetes)
@@ -50,7 +50,7 @@ Backups are created in the directory `/data/backup` that should be mapped has vo
 
       docker run --env LDAP_BACKUP_CONFIG_CRON_EXP="0 5 * * *" \
       --volume /data/openldap/backup:/data/backup \
-      --detach osixia/openldap-backup:1.3.0
+      --detach osixia/openldap-backup:1.4.0
 
 
 For more information about docker data volume, please refer to :
@@ -64,11 +64,11 @@ Available levels are: `none`, `error`, `warning`, `info`, `debug` and `trace`.
 
 Example command to run the container in `debug` mode:
 
-	docker run --detach osixia/openldap-backup:1.3.0 --loglevel debug
+	docker run --detach osixia/openldap-backup:1.4.0 --loglevel debug
 
 See all command line options:
 
-	docker run osixia/openldap-backup:1.3.0 --help
+	docker run osixia/openldap-backup:1.4.0 --help
 
 
 ## Environment Variables
@@ -90,7 +90,7 @@ See how to [set your own environment variables](#set-your-own-environment-variab
 Environment variables can be set by adding the --env argument in the command line, for example:
 
     docker run --env LDAP_BACKUP_CONFIG_CRON_EXP="0 5 * * *" \
-    --detach osixia/openldap-backup:1.3.0
+    --detach osixia/openldap-backup:1.4.0
 
 
 #### Link environment file
@@ -98,7 +98,7 @@ Environment variables can be set by adding the --env argument in the command lin
 For example if your environment file is in :  /data/ldap/environment/my-env.yaml
 
 	docker run --volume /data/ldap/environment/my-env.yaml:/container/environment/01-custom/env.yaml \
-	--detach osixia/openldap-backup:1.3.0
+	--detach osixia/openldap-backup:1.4.0
 
 Take care to link your environment file to `/container/environment/XX-somedir` (with XX < 99 so they will be processed before default environment files) and not  directly to `/container/environment` because this directory contains predefined baseimage environment files to fix container environment (INITRD, LANG, LANGUAGE and LC_CTYPE).
 
@@ -108,13 +108,13 @@ This is the best solution if you have a private registry. Please refer to the [A
 
 ## Advanced User Guide
 
-### Extend osixia/openldap-backup:1.3.0 image
+### Extend osixia/openldap-backup:1.4.0 image
 
 If you need to add your custom environment files you can extends this image.
 
 Dockerfile example:
 
-	FROM osixia/openldap-backup:1.3.0
+	FROM osixia/openldap-backup:1.4.0
 	MAINTAINER Your Name <your@name.com>
 
 	ADD environment /container/environment/01-custom
