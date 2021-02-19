@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project follows [osixia/openldap](https://github.com/osixia/docker-openldap-backup) versioning.
 
+## [1.5.0] - 2021-02-19
+### Changed
+  - Upgrade baseimage to openldap:1.5.0
+
 ## [1.4.0] - 2020-06-15
 ### Changed
   - Upgrade baseimage to openldap:1.4.0
@@ -122,6 +126,7 @@ and this project follows [osixia/openldap](https://github.com/osixia/docker-open
 ## 0.1.0 - 2015-07-24
 Initial release
 
+[1.5.0]: https://github.com/osixia/docker-openldap-backup/compare/v1.4.0...v1.5.0
 [1.4.0]: https://github.com/osixia/docker-openldap-backup/compare/v1.3.0...v1.4.0
 [1.3.0]: https://github.com/osixia/docker-openldap-backup/compare/v1.2.5...v1.3.0
 [1.2.5]: https://github.com/osixia/docker-openldap-backup/compare/v1.2.4...v1.2.5
