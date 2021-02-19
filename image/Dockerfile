@@ -2,8 +2,8 @@ FROM osixia/openldap:1.4.0
 
 # Install cron from baseimage and remove .cfss and slapd services inherited from openldap image
 # remove also previous default environment files, they are not needed.
-# sources: https://github.com/osixia/docker-light-baseimage/blob/stable/image/tool/add-service-available
-#          https://github.com/osixia/docker-light-baseimage/blob/stable/image/service-available/:cron/download.sh
+# sources: https://github.com/osixia/docker-light-baseimage/blob/master/image/tool/add-service-available
+#          https://github.com/osixia/docker-light-baseimage/blob/master/image/service-available/:cron/download.sh
 RUN apt-get -y update \
 	&& /container/tool/add-multiple-process-stack \
 	&& apt-get install -y awscli \
@@ -14,7 +14,7 @@ RUN apt-get -y update \
 ADD service /container/service
 
 # Use baseimage install-service script
-# https://github.com/osixia/docker-light-baseimage/blob/stable/image/tool/install-service
+# https://github.com/osixia/docker-light-baseimage/blob/master/image/tool/install-service
 RUN /container/tool/install-service
 
 # Add default env variables
