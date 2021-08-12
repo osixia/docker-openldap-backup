@@ -20,7 +20,7 @@ chmod 600 $backupFilePath
 
 if [[ "$UPLOAD_TO_S3" == "true" ]]; then
   # Upload backup to S3. The backupFilePath is the config backup file path
-  aws s3 cp $backupFilePath s3://${S3_PATH}/
+  aws s3 cp $backupFilePath s3://$(echo $S3_PATH | sed 's:/*$::')/
   echo "Upload successful"
 fi
 
