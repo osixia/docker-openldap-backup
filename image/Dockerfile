@@ -6,9 +6,10 @@ FROM osixia/openldap:1.5.0
 #          https://github.com/osixia/docker-light-baseimage/blob/master/image/service-available/:cron/download.sh
 RUN apt-get -y update \
 	&& /container/tool/add-multiple-process-stack \
-	&& apt-get install -y awscli \
+	&& apt-get install -y python3-pip \
 	&& apt-get clean \
-	&& rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+	&& rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
+	&& pip3 install awscli==1.20.24
 
 # Add service directory to /container/service
 ADD service /container/service
